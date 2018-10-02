@@ -16,7 +16,7 @@ class App extends Component {
               exact 
               component={Home} />          
             <Route 
-              path="/landing/:label" 
+              path="/landing/:title" 
               component={Referral} />                                                
             <Route component={Error} />
           </Switch>        

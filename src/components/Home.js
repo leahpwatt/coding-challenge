@@ -1,37 +1,99 @@
 import React, { Component } from 'react';
 import { Link } from "react-router-dom";
+import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
 
-const referrals = [
-  { id: '1', label: 'Wolverines' },
-  { id: '2', label: 'Spartans' },
-  { id: '3', label: 'Lakers' },
-  { id: '4', label: 'Broncos' },
-  { id: '5', label: 'Lions' },
-];
+import Form from "./Form";
+import Table from "./Table";
 
 export default class Home extends Component {
+  state = {
+    data: [
+      {
+        "key": 1,    
+        "title": "Wolverines",
+        "value": "Wolverines",   
+        "clicks": 0,           
+      },
+      {
+        "key": 2,    
+        "title": "Spartans",
+        "value": "Spartans",        
+        "clicks": 0,           
+      },
+      {
+        "key": 3,    
+        "title": "Lakers",
+        "value": "Lakers",     
+        "clicks": 0,              
+      },      
+    ],
+    editIdx: -1
+  };
+
+  handleRemove = i => {
+    this.setState(state => ({
+      data: state.data.filter((row, j) => j !== i)
+    }));
+  };
+
+  startEditing = i => {
+    this.setState({ editIdx: i });
+  };
+
+  stopEditing = () => {
+    this.setState({ editIdx: -1 });
+  };
+
+  handleChange = (e, name, i) => {
+    const { value } = e.target;
+    this.setState(state => ({
+      data: state.data.map(
+        (row, j) => (j === i ? { ...row, [name]: value } : row)
+      )
+    }));
+  };  
+
   render() {
+    const { data } = this.state;
     return (
-      <div>
-        <h3>Grow the Web with Referrals!</h3>
-        {referrals.map(({id, label}) => 
-          <div key={`${id}`}>
-            <Link 
-              to={`/landing/${label}`}>
-              {label}
-            </Link> 
-          </div>
-        )}
-      </div>
+      <MuiThemeProvider>
+        <div className="container">
+          <h1>Grow the Web with Referrals!</h1>
+          <Form onSubmit={submission => 
+            this.setState({
+              data: [...this.state.data, submission]
+            })} />
+          <Table 
+            handleRemove={this.handleRemove}
+            startEditing={this.startEditing}
+            editIdx={this.state.editIdx}
+            stopEditing={this.stopEditing}
+            handleChange={this.handleChange}      
+            data={this.state.data}
+            header={[
+              {
+                name: "Link Title", 
+                prop: 'title',
+              },
+              {
+                name: "Clicks",
+                prop: 'clicks',
+              }                                                        
+            ]} 
+          />     
+          {data === 0 &&
+            <h3>You currently have no referrals. Enter a new referral, then 'Click to Add' above.</h3>
+          }                     
+        </div>
+      </MuiThemeProvider>
     )
   }
 }
 
-export const Referral = ({ match }) => {
-  const referral = referrals.find(item => item.label === match.params.label);  
+export const Referral = ({ match }) => {  
   return (
     <div>
-      <h3> { referral.label }</h3>        
+      <h3> { match.params.title }</h3>        
       <Link to={`/`}>Back</Link>
     </div>
   )

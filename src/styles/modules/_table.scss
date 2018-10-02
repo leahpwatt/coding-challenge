@@ -1,0 +1,15 @@
+.table {
+  a {
+    color: $denim;    
+    &:hover {
+      color: $material-blue;
+    }
+  }
+  svg {
+    color: $denim !important;
+    &:hover {
+      cursor: pointer;
+      color: $material-blue !important; 
+    }
+  }
+}

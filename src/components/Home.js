@@ -12,7 +12,7 @@ export default class Home extends Component {
         "key": 1,    
         "title": "Wolverines",
         "value": "Wolverines",   
-        "clicks": 0,           
+        "clicks": 4,           
       },
       {
         "key": 2,    
@@ -27,7 +27,7 @@ export default class Home extends Component {
         "clicks": 0,              
       },      
     ],
-    editIdx: -1
+    editIdx: -1,    
   };
 
   handleRemove = i => {
@@ -43,18 +43,18 @@ export default class Home extends Component {
   stopEditing = () => {
     this.setState({ editIdx: -1 });
   };
-
+  
   handleChange = (e, name, i) => {
     const { value } = e.target;
     this.setState(state => ({
       data: state.data.map(
         (row, j) => (j === i ? { ...row, [name]: value } : row)
       )
-    }));
+    }));    
   };  
 
   render() {
-    const { data } = this.state;
+    const { data } = this.state;    
     return (
       <MuiThemeProvider>
         <div className="container">
@@ -68,7 +68,8 @@ export default class Home extends Component {
             startEditing={this.startEditing}
             editIdx={this.state.editIdx}
             stopEditing={this.stopEditing}
-            handleChange={this.handleChange}      
+            handleChange={this.handleChange} 
+            increment={this.increment}      
             data={this.state.data}
             header={[
               {
@@ -92,9 +93,9 @@ export default class Home extends Component {
 
 export const Referral = ({ match }) => {  
   return (
-    <div>
-      <h3> { match.params.title }</h3>        
-      <Link to={`/`}>Back</Link>
+    <div className="container">
+      <h1>{match.params.title} are Awesome!</h1>        
+      <Link to={`/`}>Back</Link>      
     </div>
   )
 }

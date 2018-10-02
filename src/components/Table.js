@@ -1,12 +1,4 @@
 import React from "react";
-// import {
-//   Table,
-//   TableBody,
-//   TableHeader,
-//   TableHeaderColumn,
-//   TableRow,
-//   TableRowColumn
-// } from "material-ui/Table";
 import { Table } from 'semantic-ui-react';
 import EditIcon from "material-ui/svg-icons/image/edit";
 import TrashIcon from "material-ui/svg-icons/action/delete";
@@ -23,7 +15,8 @@ const row = (
   startEditing,
   editIdx,
   handleChange,
-  stopEditing
+  stopEditing,
+  increment,
 ) => {
   const currentlyEditing = editIdx === i;
   return (
@@ -63,7 +56,8 @@ export default ({
   startEditing,
   editIdx,
   handleChange,
-  stopEditing
+  stopEditing,
+  increment,
 }) => (
   <Table 
     celled
@@ -87,7 +81,8 @@ export default ({
           startEditing,
           editIdx,
           handleChange,
-          stopEditing
+          stopEditing,
+          increment,
         )
       )}
     </Table.Body>

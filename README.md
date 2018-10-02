@@ -1,3 +1,18 @@
+My Notes on the Ambassador Coding Challenge:
+
+This code example is a front-end CRUD app that provides a way for contributors to view and add referral links. Each item is linked to its own page. Contributors can also edit the titles of existing links or delete them. I hardcoded some data for users to see examples of what to contribute.
+
+The app is built in React and uses a combination of semantic-ui-react and material-ui libraries; I selected these because they are user friendly and aesthetically pleasing in their simplicity. I also pulled SASS into the project instead of using raw CSS (the html-css-exercise demonstrates my ability to use raw CSS).
+
+Unfortunately, due to time limitations, I was not able to fulfill the following requirements: incrementing clicks based on links accessed, and storing the data between pages. Time permitting, I would build out these features. In the CSS exercise, I still have some work to do on the numbers; other than that, the exercise is fairly well complete. I tried to use a range of selectors and declarations to demonstrate my well-rounded knowledge.
+
+Here is a link to the application in its current state, deployed on Heroku: 
+
+Additionally, here is an example of a challenge I did last week: https://fast-ocean-64019.herokuapp.com/
+Here is a link to the repo: https://github.com/leahpwatt/react-weather-app
+This is a weather app, built in React, that utilizes the openweathermap api. It displays the current temperature of the user's location (you'll have to give permissions when the page loads), as well as the 5-day forecast. It is also not what I would deem "complete"; however, it is what I was able to accomplish given the 4-5 hour window of time. I hope this helps provide an additional example of my capabilities.
+
+
 # Ambassador Coding Challenge
 
 Our coding challenge is your opportunity to demonstrate your experience, skills, and aptitude by building a prototype of the web’s most minimal referral automation software.

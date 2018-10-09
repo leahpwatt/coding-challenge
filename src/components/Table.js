@@ -29,9 +29,9 @@ const row = (
             value={x[header[0].prop]}
           />
         ) : (
-          <Link to={`/landing/${x[header[0].prop]}`}>  
+          <Link onClick={e => increment(e, header[1].prop, i)} to={`/landing/${x[header[0].prop]}`}>  
             {x[header[0].prop]}
-          </Link>
+          </Link>       
         )}
       </Table.Cell>  
       <Table.Cell>{x[header[1].prop]}</Table.Cell>

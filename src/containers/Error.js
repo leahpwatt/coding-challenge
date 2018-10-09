@@ -2,8 +2,8 @@ import React from 'react';
 
 const Error = () => {
   return (
-    <div>
-      <h1>Error</h1>      
+    <div className="container">
+      <h1>Whoops! This page doesn't exist.</h1>                
     </div>
   )
 };

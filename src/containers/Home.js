@@ -2,33 +2,48 @@ import React, { Component } from 'react';
 import { Link } from "react-router-dom";
 import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
 
-import Form from "./Form";
-import Table from "./Table";
+import Form from "../components/Form";
+import Table from "../components/Table";
 
 export default class Home extends Component {
   state = {
     data: [
       {
         "key": 1,    
-        "title": "Wolverines",
-        "value": "Wolverines",   
-        "clicks": 4,           
+        "title": "Ramones",
+        "value": "Ramones",   
+        "clicks": 0,           
       },
       {
         "key": 2,    
-        "title": "Spartans",
-        "value": "Spartans",        
+        "title": "Sex Pistols",
+        "value": "Sex Pistols",        
         "clicks": 0,           
       },
       {
         "key": 3,    
-        "title": "Lakers",
-        "value": "Lakers",     
+        "title": "The Clash",
+        "value": "The Clash",     
         "clicks": 0,              
       },      
     ],
     editIdx: -1,    
   };
+
+
+  hydrateStateWithLocalStorage = () => {      
+    for (let key in this.state) {        
+      if (localStorage.hasOwnProperty(key)) {          
+        let value = localStorage.getItem(key);          
+        try {
+          value = JSON.parse(value);
+          this.setState({ [key]: value });
+        } catch (e) {            
+          this.setState({ [key]: value });
+        }
+      }
+    }
+  }
 
   handleRemove = i => {
     this.setState(state => ({
@@ -50,8 +65,23 @@ export default class Home extends Component {
       data: state.data.map(
         (row, j) => (j === i ? { ...row, [name]: value } : row)
       )
-    }));    
+    }));        
   };  
+
+  increment = (e, name, i) => {     
+    const data = [...this.state.data];
+    const increment = data[i].clicks += 1;         
+    this.setState(state => ({
+      data: state.data.map(
+        (row, k) => (k === i ? { ...row, [name]: increment } : row)        
+      )      
+    }));  
+    localStorage.setItem("data", JSON.stringify(data)); 
+  }
+
+  componentDidMount() {
+    this.hydrateStateWithLocalStorage();
+  }
 
   render() {
     const { data } = this.state;    

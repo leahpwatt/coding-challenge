@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import './styles/App.css';
 
-import Home, { Referral } from './components/Home';
-import Error from './components/Error';
+import Home, { Referral } from './containers/Home';
+import Error from './containers/Error';
 
 class App extends Component {
   render() {    

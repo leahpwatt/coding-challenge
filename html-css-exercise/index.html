@@ -2,38 +2,53 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>title</title>
-  <link rel="stylesheet" href="stylesheet.css" type="text/css">
-  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <title>CSS!</title>
+    <link rel="stylesheet" href="stylesheet.css" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
   </head>
   <body>
     <div class="activity-feed">
-      <ol class="counter">        
-        <li></li>        
-        <li></li>        
-        <li></li>                                 
-      </ol>
-        <span class="line" id="line-1"></span> 
-        <span class="line" id="line-2"></span>            
-      <div>
-        <ul>        
-          <li>                      
-            <span><a href="#">Link to</a> item one.</span>            
-            <span>10/02/2018</span>
-            <p>The fat cat sat on the mat bat away with paws flee in terror at cucumber discovered on floor under the bed</p>
-          </li>        
-          <li>                      
-            <span>Item two has a bit of a longer title</span>            
-            <span>10/02/2018</span>
-            <p>Toy mouse squeak roll over i show my fluffy belly but it's a trap!</p>
-          </li>        
-          <li>                      
-            <span><a href="#">Item three</a> has an insanely long title that needs to wrap around as the screen gets smaller.</span>            
-            <span>10/02/2018</span>
-            <p>Toy mouse squeak roll over i show my fluffy belly but it's a trap!</p>
-          </li>
-        </ul>
-      </div>
+      <ul>
+        <li>
+          <div class="counter">
+            <div class="counter__one">1</div>
+            <div></div>
+          </div>
+          <div class="item">
+            <div>
+              <h4><a href="#">Link to</a> to item one.</h4>
+              <p>10/02/2018</p>
+            </div>
+            <p class="item__desc">The fat cat sat on the mat bat away with paws flee in terror at cucumber discovered on floor under the bed.</p>
+          </div>
+        </li>
+        <li>
+          <div class="counter">
+            <div class="counter__two">2</div>
+            <div></div>
+          </div>
+          <div class="item">
+            <div>
+              <h4>Item two has a bit of a longer title</h4>
+              <p>10/02/2018</p>
+            </div>
+            <p class="item__desc">Toy mouse squeak roll over i show my fluffy belly but it's a trap!</p>
+          </div>
+        </li>
+        <li>
+          <div class="counter">
+            <div class="counter__three">3</div>
+            <div></div>
+          </div>
+          <div class="item">
+            <div>
+              <h4><a href="#">Item three</a> has an insanely long title that needs to wrap properly as the screen gets smaller.</h4>
+              <p>10/02/2018</p>
+            </div>
+            <p class="item__desc">When owners are asleep, cry for no apparent reason find box a little too small and curl up with fur hanging out , and meow to be let out yet fall asleep upside-down.</p>
+          </div>
+        </li>
+      </ul>
     </div>
   </body>
 </html>
